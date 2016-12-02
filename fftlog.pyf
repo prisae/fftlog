@@ -19,7 +19,7 @@ python module fftlog ! in
             real*8 intent(in) :: dlnr
             real*8 intent(in, out) :: kr
             integer optional, intent(in) :: kropt=1
-            real*8 dimension(3.5*n+19), intent(out) :: wsave
+            real*8 dimension(2*n+3*(n/2)+19), intent(out) :: wsave
             logical intent(out) :: ok
         end subroutine fhti
         subroutine fftl(n,a,rk,dir,wsave) ! in :fftlog:fftlog.f
@@ -27,19 +27,19 @@ python module fftlog ! in
             real*8 dimension(n), intent(in, out) :: a
             real*8 optional, intent(in) :: rk=1
             integer intent(in) :: dir
-            real*8 dimension(3.5*n+19), intent(in) :: wsave
+            real*8 dimension(2*n+3*(n/2)+19), intent(in) :: wsave
         end subroutine fftl
         subroutine fht(n,a,dir,wsave) ! in :fftlog:fftlog.f
             integer, optional, intent(hide), depend(a) :: n=len(a)
             real*8 dimension(n), intent(in, out) :: a
             integer intent(in) :: dir
-            real*8 dimension(3.5*n+19), intent(in) :: wsave
+            real*8 dimension(2*n+3*(n/2)+19), intent(in) :: wsave
         end subroutine fht
         subroutine fhtq(n,a,dir,wsave) ! in :fftlog:fftlog.f
             integer, optional, intent(hide), depend(a) :: n=len(a)
             real*8 dimension(n), intent(in, out) :: a
             integer intent(in) :: dir
-            real*8 dimension(3.5*n+19), intent(in) :: wsave
+            real*8 dimension(2*n+3*(n/2)+19), intent(in) :: wsave
         end subroutine fhtq
     end interface 
 end python module fftlog

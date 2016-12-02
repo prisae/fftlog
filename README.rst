@@ -79,8 +79,8 @@ Lastly I amended the `pyf`-instructions, mainly with some :code:`intent` and
 Notes
 -----
 1. :code:`kropt = 3` (interactive adjusting) is not possible with `fftlog`
-2. :code:`wsave`-dimension is set to :code:`3.5*n+19`, the biggest of the four
-   minimum sizes described in `fftlog.f`.
+2. :code:`wsave`-dimension is set to :code:`2*n+3*(n/2)+19`, the biggest of the
+   four minimum sizes described in `fftlog.f`.
 
 
 References

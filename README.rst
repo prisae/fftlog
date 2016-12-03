@@ -5,6 +5,15 @@ This is a simple `f2py`-wrapper for the logarithmic FFT code *FFTLog* as
 presented in Appendix B of [Hamilton_2000]_ and published at
 `casa.colorado.edu/~ajsh/FFTLog <http://casa.colorado.edu/~ajsh/FFTLog>`_.
 
+A pure python version (`pyfftlog`) can be found on
+`github.com/prisae/pyfftlog <https://github.com/prisae/pyfftlog>`_.
+Tests have shown that `fftlog` is a bit faster than `pyfftlog`, but `pyfftlog`
+is easier to implement, as you only need `NumPy` and `SciPy`, without the
+need to compile anything.
+
+I hope that `FFTLog` will make it into `SciPy` in the future, which will make
+this project redundant.
+
 
 Description of FFTLog from the FFTLog-Website
 ---------------------------------------------
@@ -45,6 +54,8 @@ To just create the module that you can import locally:
 .. code:: bash
 
    f2py -c fftlog.pyf src/*
+
+You need a fortran compiler for this to work.
 
 Check out the Jupyter Notebook `fftlogtest.ipynb` in the root directory. It is
 a translation of the test-function `fftlogtest.f`, and should get you started.
@@ -124,6 +135,3 @@ The original gamerf copyright statement states::
 Permission to distribute the modified gamma function code with the FFTLog
 package has been granted (email from Takuya Ooura to Andrew Hamilton dated 16
 March 1999).
-
-
-

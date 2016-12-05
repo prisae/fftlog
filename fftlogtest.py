@@ -157,7 +157,7 @@ ar = r**(mu + 1)*np.exp(-r**2/2.0)
 
 # In[5]:
 
-kr, wsave, ok = fftlog.fhti(n, mu, dlnr, kr, q, kropt)
+kr, wsave, ok = fftlog.fhti(n, mu, dlnr, q, kr, kropt)
 print('fftlog.fhti: ok =', bool(ok), '; New kr = ', kr)
 
 
@@ -172,8 +172,8 @@ print('Central point in k-space at log10(k_c) = ', logkc)
 rk = 10**(logrc - logkc)
 
 # Transform
-#ak = fftlog.fftl(ar, tdir, wsave, rk)
-ak = fftlog.fht(ar.copy(), tdir, wsave)
+#ak = fftlog.fftl(ar.copy(), wsave, rk, tdir)
+ak = fftlog.fht(ar.copy(), wsave, tdir)
 
 
 # ### Calculate Output function: $k^{\mu+1}\exp\left(-\frac{k^2}{2}\right)$

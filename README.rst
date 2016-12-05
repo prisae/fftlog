@@ -14,6 +14,12 @@ need to compile anything.
 I hope that `FFTLog` will make it into `SciPy` in the future, which will make
 this project redundant.
 
+Be aware that `pyfftlog` has not been tested extensively. It works fine
+for the attached test, which is the test from the original code, and my use
+case, which is `pyfftlog.fftl` with `mu=0.5` (sine-transform), `q=0`
+(unbiased), `k=1`, `kropt=1`, and `tdir=` (forward). Please let me know if you
+encounter any issues.
+
 
 Description of FFTLog from the FFTLog-Website
 ---------------------------------------------

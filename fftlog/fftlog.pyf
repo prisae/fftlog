@@ -10,9 +10,9 @@
 !
 ! For f2py see http://cens.ioc.ee/projects/f2py2e/
 
-python module fftlog ! in 
+python module _fftlog ! in
     interface  ! in :fftlog
-        subroutine fhti(n,mu,q,dlnr,kr,kropt,wsave,ok) ! in :fftlog:fftlog.f
+        subroutine fhti(n,mu,q,dlnr,kr,kropt,wsave,ok) ! in :fftlog:src/fftlog.f
             integer intent(int) :: n
             real*8 intent(in) :: mu
             real*8 optional, intent(in) :: q=0
@@ -22,24 +22,24 @@ python module fftlog ! in
             real*8 dimension(2*n+3*(n/2)+19), intent(out) :: wsave
             logical intent(out) :: ok
         end subroutine fhti
-        subroutine fftl(n,a,rk,dir,wsave) ! in :fftlog:fftlog.f
+        subroutine fftl(n,a,rk,dir,wsave) ! in :fftlog:src/fftlog.f
             integer, optional, intent(hide), depend(a) :: n=len(a)
             real*8 dimension(n), intent(in, out) :: a
             real*8 optional, intent(in) :: rk=1
             integer optional, intent(in) :: dir=1
             real*8 dimension(2*n+3*(n/2)+19), intent(in) :: wsave
         end subroutine fftl
-        subroutine fht(n,a,dir,wsave) ! in :fftlog:fftlog.f
+        subroutine fht(n,a,dir,wsave) ! in :fftlog:src/fftlog.f
             integer, optional, intent(hide), depend(a) :: n=len(a)
             real*8 dimension(n), intent(in, out) :: a
             integer optional, intent(in) :: dir=1
             real*8 dimension(2*n+3*(n/2)+19), intent(in) :: wsave
         end subroutine fht
-        subroutine fhtq(n,a,dir,wsave) ! in :fftlog:fftlog.f
+        subroutine fhtq(n,a,dir,wsave) ! in :fftlog:src/fftlog.f
             integer, optional, intent(hide), depend(a) :: n=len(a)
             real*8 dimension(n), intent(in, out) :: a
             integer optional, intent(in) :: dir=1
             real*8 dimension(2*n+3*(n/2)+19), intent(in) :: wsave
         end subroutine fhtq
-    end interface 
-end python module fftlog
+    end interface
+end python module _fftlog

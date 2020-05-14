@@ -1,0 +1,25 @@
+# Directories
+__pycache__/
+
+# Cython
+*.so
+fftlog/_fftlogmodule.c
+
+# Sphinx
+docs/_build/
+docs/examples/
+
+# Pytest and coverage related
+htmlcov
+.coverage
+.coverage.*
+.pytest_cache/
+
+# setuptools_scm
+fftlog/version.py
+
+# Build related
+.eggs/
+build/
+dist/
+fftlog.egg-info/

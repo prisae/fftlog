@@ -38,10 +38,11 @@ setup(
     install_requires=[
         'scipy',
     ],
-    use_scm_version={
-        'root': '.',
-        'relative_to': __file__,
-        'write_to': os.path.join('fftlog', 'version.py'),
-    },
-    setup_requires=['setuptools_scm'],
+    version = '0.2.0rc1',
+    # use_scm_version={
+    #     'root': '.',
+    #     'relative_to': __file__,
+    #     'write_to': os.path.join('fftlog', 'version.py'),
+    # },
+    # setup_requires=['setuptools_scm'],
 )

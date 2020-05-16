@@ -10,24 +10,28 @@
 ======================================
 
 This is a simple `f2py`-wrapper for the logarithmic FFT code *FFTLog* as
-presented in Appendix B of [Hamilton_2000]_ and published at
+presented in Appendix B of [Hami00]_ and published at
 `casa.colorado.edu/~ajsh/FFTLog <http://casa.colorado.edu/~ajsh/FFTLog>`_.
 
-A pure python version (`pyfftlog`) can be found on
-`github.com/prisae/pyfftlog <https://github.com/prisae/pyfftlog>`_.
-Tests have shown that `fftlog` is a bit faster than `pyfftlog`, but `pyfftlog`
-is easier to implement, as you only need `NumPy` and `SciPy`, without the
-need to compile anything.
+A pure python version (`pyfftlog`) can be found on `github.com/prisae/pyfftlog
+<https://github.com/prisae/pyfftlog>`_. Tests have shown that `fftlog` is a bit
+faster than `pyfftlog`, but `pyfftlog` is easier to implement, as you only need
+`NumPy` and `SciPy`, without the need to compile anything.
 
 I hope that `FFTLog` will make it into `SciPy` in the future, which will make
-this project redundant.
+this project redundant. (If you have the bandwidth and are willing to chip in
+have a look at `SciPy PR #7310 <https://github.com/scipy/scipy/pull/7310>`_.)
 
-Be aware that `pyfftlog` has not been tested extensively. It works fine
-for the attached test, which is the test from the original code, and my use
-case, which is `pyfftlog.fftl` with `mu=0.5` (sine-transform), `q=0`
-(unbiased), `k=1`, `kropt=1`, and `tdir=` (forward). Please let me know if you
-encounter any issues.
+Be aware that `pyfftlog` has not been tested extensively. It works fine for the
+test from the original code, and my use case, which is `pyfftlog.fftl` with
+`mu=0.5` (sine-transform), `q=0` (unbiased), `k=1`, `kropt=1`, and `tdir=1`
+(forward). Please let me know if you encounter any issues.
 
+- **Documentation**: https://pyfftlog.readthedocs.io
+- **Source Code**: https://github.com/prisae/fftlog
+
+**Note** that the documentation is for the pure python version `pyfftlog`, but
+equally applies to `fftlog`.
 
 Description of FFTLog from the FFTLog-Website
 ---------------------------------------------
@@ -47,32 +51,26 @@ steps) and aliasing (periodic folding of frequencies), but under appropriate
 circumstances FFTLog may approximate the results of a continuous Fourier or
 Hankel transform.
 
-The FFTLog algorithm was originally proposed by [Talman_1978]_.
+The FFTLog algorithm was originally proposed by [Talm78]_.
 
-*For the full documentation, see*
-`casa.colorado.edu/~ajsh/FFTLog <http://casa.colorado.edu/~ajsh/FFTLog>`_.
+*For the full documentation, see* `casa.colorado.edu/~ajsh/FFTLog
+<http://casa.colorado.edu/~ajsh/FFTLog>`_.
 
 
 Installation
 ------------
 
-To install it in your python distribution:
+You can install fftlog either via **conda**:
 
-.. code:: bash
+.. code-block:: console
 
-   python setup.py install
+   conda install -c conda-forge fftlog
 
+or via **pip**:
 
-To just create the module that you can import locally:
+.. code-block:: console
 
-.. code:: bash
-
-   f2py -c fftlog.pyf src/*
-
-You need a fortran compiler for this to work.
-
-Check out the Jupyter Notebook `fftlogtest.ipynb` in the root directory. It is
-a translation of the test-function `fftlogtest.f`, and should get you started.
+   pip install fftlog
 
 
 Creation
@@ -97,38 +95,41 @@ command, generating only hooks for the functions `fhti`, `fttl`, `fht`, and
 
    f2py src/* -m fftlog -h fftlog.pyf only: fhti fftl fht fhtq :
 
-Lastly I amended the `pyf`-instructions, mainly with some :code:`intent` and
-:code:`optional` statements as well as the corresponding default values.
+Lastly I amended the `pyf`-instructions, mainly with some `intent` and
+`optional` statements as well as the corresponding default values.
 
 
 Notes
------
-1. :code:`kropt = 3` (interactive adjusting) is not possible with `fftlog`
-2. :code:`wsave`-dimension is set to :code:`2*n+3*(n/2)+19`, the biggest of the
-   four minimum sizes described in `fftlog.f`.
+'''''
+1. `kropt=3` (interactive adjusting) is not possible with `fftlog`
+2. `wsave`-dimension is set to `2*n+3*(n/2)+19`, the biggest of the four
+   minimum sizes described in `fftlog.f`.
 
 
 References
 ----------
 
-.. [Hamilton_2000] Hamilton, A. J. S., 2000, Uncorrelated modes of the
-    non-linear power spectrum: Monthly Notices of the Royal Astronomical
-    Society, 312, pages 257-284; DOI: `10.1046/j.1365-8711.2000.03071.x
+.. [Hami00] Hamilton, A. J. S., 2000, Uncorrelated modes of the non-linear
+    power spectrum: Monthly Notices of the Royal Astronomical Society, 312,
+    pages 257-284; DOI: `10.1046/j.1365-8711.2000.03071.x
     <http://dx.doi.org/10.1046/j.1365-8711.2000.03071.x>`_; Website of FFTLog:
     `casa.colorado.edu/~ajsh/FFTLog <http://casa.colorado.edu/~ajsh/FFTLog>`_.
 
-.. [Talman_1978] Talman, J. D., 1978, Numerical Fourier and Bessel transforms
-    in logarithmic variables: Journal of Computational Physics, 29, pages
-    35-48; DOI: `10.1016/0021-9991(78)90107-9
+.. [Talm78] Talman, J. D., 1978, Numerical Fourier and Bessel transforms in
+    logarithmic variables: Journal of Computational Physics, 29, pages 35-48;
+    DOI: `10.1016/0021-9991(78)90107-9
     <http://dx.doi.org/10.1016/0021-9991(78)90107-9>`_.
 
 
-License and Credits
--------------------
+License, Citation, and Credits
+------------------------------
 
 These additions to the original FFTLog-code are released to the public domain
 under the `CC0 1.0 License
 <http://creativecommons.org/publicdomain/zero/1.0>`_.
+
+All releases have a Zenodo-DOI, which can be found on `10.5281/zenodo.3830364
+<https://doi.org/10.5281/zenodo.3830534>`_.
 
 Permission to distribute the original Fortran `FFTLog` code with this Python
 `fftlog` package has been granted (email from Andrew Hamilton to Dieter
@@ -149,3 +150,5 @@ The original gamerf copyright statement states::
 Permission to distribute the modified gamma function code with the FFTLog
 package has been granted (email from Takuya Ooura to Andrew Hamilton dated 16
 March 1999).
+
+Be kind and give credits by citing [Hami00]_.

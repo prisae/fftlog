@@ -44,7 +44,7 @@ deploy:
   provider: pypi
   user: "__token__"
   password:
-    secure: TODO
+    secure: BHN9rI3Ckz5aofGqhdpcNq9JQwqLrWQX64xlXsflY46ROQi3+jii0bbRyZgMbv3MMzkjJBOlS/L4GH1dd3da56vYBrDr4n4zCRjMRdoaFLkJRPZttNs5Il1cO2wY7yn0et8Guq7JCNivNJGppAzj5vvaJu50YfW7izaRRlMEDc8KgN5CIKaD5HOGC4AkRCwLWKOf16ly5uhOMFcVrDd/c4UvZMTxByePls2NExZzrrVxndfZZklHOIeVI0QUjuD5fc8MKxO+Lx3S01LHgFdM4xfilQPtPajAg/C6iXavcrrXk62mit0/T53reEoDBbuyQ7rtKwbJm+iN3R+qpiYjegrSpdc9l1FU2rCO3T3R7a3nNF3PzfCm6IZcgkIXjg8melUlaLROL1A7yj/DMh/ASjUPILTV2hedC5bJ/aEVsuBgjDhq7d7wH+RDuswx8vZOHkt9aKtTgLZJdvCUg0QMe0dkkmsTXq0YkLZLXcD3mEOV5lNnu50us9JEDhzunX37p1S+RhBVCWa16rptnWlfEo0W8rk42lmTywu3f6mLmsfKWFJ3zQQOo62zNya11ff1KLwdUGK9QfLw8y7wnrpVrwYU/6PU7d82gWphy2GqB50BjmpPk1lX75rkywRySHpBZug03dlMmUwzWbm9L6VTlA0RepNT3PXCS8rXBBJMzSU=
   on:
     branch: master
     tags: true

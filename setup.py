@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 import os
 import re
-# from setuptools import setup
 from numpy.distutils.core import setup, Extension
 
 # Get README and remove badges.
 readme = open('README.rst').read()
-readme = re.sub('----.*marker', '----', readme, flags=re.DOTALL)
+readme = re.sub('.*`fftlog` - A', '`fftlog` - A', readme, flags=re.DOTALL)
 
 description = ("Python wrapper (f2py) for Fortran FFTLog "
                "(Version 13 March 2000) by Andrew J.S. Hamilton")
@@ -20,6 +19,7 @@ setup(
     url='https://github.com/prisae/fftlog',
     license='CC0-1.0',
     packages=['fftlog', ],
+    include_package_data=True,
     ext_modules=[
         Extension(
             name="fftlog._fftlog",
@@ -38,11 +38,10 @@ setup(
     install_requires=[
         'scipy',
     ],
-    version = '0.2.0rc1',
-    # use_scm_version={
-    #     'root': '.',
-    #     'relative_to': __file__,
-    #     'write_to': os.path.join('fftlog', 'version.py'),
-    # },
-    # setup_requires=['setuptools_scm'],
+    use_scm_version={
+        'root': '.',
+        'relative_to': __file__,
+        'write_to': os.path.join('fftlog', 'version.py'),
+    },
+    setup_requires=['setuptools_scm'],
 )

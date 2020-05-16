@@ -4,13 +4,6 @@
 # SETUP RELATED
 setuptools_scm
 
-# FOR DOCUMENTATION
-sphinx
-numpydoc
-matplotlib
-sphinx_gallery
-sphinx_rtd_theme
-
 # FOR TESTING
 pytest
 coveralls

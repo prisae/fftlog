@@ -1,5 +1,5 @@
-`fftlog` - python wrapper FFTLog
-================================
+`fftlog` - A python wrapper for FFTLog
+======================================
 
 This is a simple `f2py`-wrapper for the logarithmic FFT code *FFTLog* as
 presented in Appendix B of [Hamilton_2000]_ and published at

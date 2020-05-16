@@ -7,12 +7,9 @@ from numpy.distutils.core import setup, Extension
 readme = open('README.rst').read()
 readme = re.sub('.*`fftlog` - A', '`fftlog` - A', readme, flags=re.DOTALL)
 
-description = ("Python wrapper (f2py) for Fortran FFTLog "
-               "(Version 13 March 2000) by Andrew J.S. Hamilton")
-
 setup(
     name='fftlog',
-    description=description,
+    description='Logarithmic Fast Fourier Transform',
     long_description=readme,
     author='Dieter Werthmüller',
     author_email='dieter@werthmuller.org',

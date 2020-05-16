@@ -11,6 +11,10 @@ matrix:
     - python: 3.8
       env: PYTHON=3.8
 
+addons:
+  apt_packages:
+    - gfortran
+
 install:
   - sudo apt-get update
   # We do this conditionally because it saves us some downloading if the

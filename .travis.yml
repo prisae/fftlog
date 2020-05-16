@@ -31,14 +31,11 @@ install:
   # Install and activate environment, install packages
   - conda create -q -n test-environment python=$PYTHON $PCKGS scipy pytest pytest-cov
   - source activate test-environment
-  - pip install setuptools_scm coveralls pytest-flake8 $INST
+  - pip install setuptools_scm pytest-flake8 $INST
   - pip install -e .
 
 script:
   - pytest --cov=fftlog --flake8 $TEST
-
-after_success:
-  - if [ "$CHCKLNKS" == "" ]; then coveralls; fi
 
 deploy:
   provider: pypi

@@ -151,4 +151,4 @@ Permission to distribute the modified gamma function code with the FFTLog
 package has been granted (email from Takuya Ooura to Andrew Hamilton dated 16
 March 1999).
 
-Be kind and give credits by citing [Hami00]_.
+Be kind and give credits by citing Hamilton (2000).

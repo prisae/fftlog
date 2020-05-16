@@ -1,0 +1,19 @@
+# Directories
+__pycache__/
+
+# Cython
+*.so
+fftlog/_fftlogmodule.c
+
+# Pytest
+.pytest_cache/
+
+# setuptools_scm
+fftlog/version.py
+
+# Build related
+.eggs/
+build/
+dist/
+fftlog.egg-info/
+MANIFEST

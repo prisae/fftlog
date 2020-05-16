@@ -1,0 +1,5 @@
+prune tests
+exclude requirements.txt
+exclude requirements-dev.txt
+exclude .gitignore
+exclude .travis.yml

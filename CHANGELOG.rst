@@ -1,6 +1,12 @@
 Changelog
 #########
 
+v0.2.1 : Fix packaging
+----------------------
+
+Version 0.2.0 had some problems with the way it was packaged on PyPi and
+conda-forge. Nothing changed in the code itself.
+
 
 v0.2.0 : First packaged release
 -------------------------------

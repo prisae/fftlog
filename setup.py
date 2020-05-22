@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-import os
 import re
-from numpy.distutils.core import setup, Extension
+import sys
 
 # Get README and remove badges.
 readme = open('README.rst').read()
 readme = re.sub('.*`fftlog` - A', '`fftlog` - A', readme, flags=re.DOTALL)
 
-setup(
+metadata = dict(
     name='fftlog',
+    version='0.2.1',  # Adjust in fftlog/__init__.py too!
     description='Logarithmic Fast Fourier Transform',
     long_description=readme,
     author='Dieter Werthmüller',
@@ -17,7 +17,35 @@ setup(
     license='CC0-1.0',
     packages=['fftlog', ],
     include_package_data=True,
-    ext_modules=[
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
+    ],
+    install_requires=[
+        'scipy',
+    ],
+    # setup_requires=['numpy', ],
+)
+
+
+bdist = ('bdist_wheel', 'bdist_egg')
+nonumpy = ('--help-commands', 'egg_info', '--version', 'clean')
+argv2 = len(sys.argv) >= 2
+if argv2 and ('--help' in sys.argv[1:] or sys.argv[1] in nonumpy):
+    # For these actions, NumPy is not required.
+    #
+    # They are required to succeed without Numpy, for example when pip is
+    # used to install fftlog when Numpy is not yet present in the system.
+    from setuptools import setup
+else:
+    if (argv2 >= 2 and sys.argv[1] in bdist) or ('develop' in sys.argv):
+
+        # bdist_wheel/bdist_egg needs setuptools
+        import setuptools  # noqa
+
+    from numpy.distutils.core import setup, Extension
+
+    metadata['ext_modules'] = [
         Extension(
             name="fftlog._fftlog",
             sources=['fftlog/fftlog.pyf', ] +
@@ -27,18 +55,6 @@ setup(
                         'fftlog/src/fftlog.f'
                     ],
                  )
-        ],
-    classifiers=[
-        'Development Status :: 5 - Production/Stable',
-        'License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
-    ],
-    install_requires=[
-        'scipy',
-    ],
-    use_scm_version={
-        'root': '.',
-        'relative_to': __file__,
-        'write_to': os.path.join('fftlog', 'version.py'),
-    },
-    setup_requires=['setuptools_scm'],
-)
+        ]
+
+setup(**metadata)

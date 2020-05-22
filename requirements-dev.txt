@@ -1,9 +1,6 @@
 # GLOBAL REQUIREMENTS
 -r requirements.txt
 
-# SETUP RELATED
-setuptools_scm
-
 # FOR TESTING
 pytest
 coveralls

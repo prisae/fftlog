@@ -1,6 +1,6 @@
-.. image:: https://travis-ci.org/prisae/fftlog.svg?branch=master
-   :target: https://travis-ci.org/prisae/fftlog
-   :alt: Travis-CI
+.. image:: https://github.com/prisae/fftlog/workflows/pytest/badge.svg?branch=master
+   :target: https://github.com/prisae/fftlog/actions
+   :alt: GitHub Actions
 .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3830534.svg
    :target: https://doi.org/10.5281/zenodo.3830534
    :alt: Zenodo DOI

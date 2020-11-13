@@ -65,8 +65,7 @@ jobs:
     name: Deploy to PyPI
     runs-on: ubuntu-latest
     # Only from the origin repository, not forks; only master.
-# TODO TODO   if: github.repository_owner == 'prisae' && github.ref == 'refs/heads/master'
-    if: github.repository_owner == 'prisae'
+O   if: github.repository_owner == 'prisae' && github.ref == 'refs/heads/master'
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE
@@ -121,6 +120,7 @@ jobs:
           # Allow existing releases on test PyPI without errors.
           # NOT TO BE USED in PyPI!
           skip_existing: true
+          fail_ci_if_error: false
 
       - name: Publish to PyPI
         # Only for releases
